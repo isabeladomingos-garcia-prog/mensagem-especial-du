@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mensagem para Du</title>
+
+<style>
+
+body{
+text-align:center;
+font-family:Arial;
+background:linear-gradient(45deg,#ff9a9e,#fbc2eb,#a1c4fd,#c2ffd8);
+padding:50px;
+}
+
+h1{
+font-size:40px;
+color:#0a5c2a;
+}
+
+.mensagem{
+font-size:28px;
+margin:30px;
+}
+
+img{
+width:120px;
+margin:10px;
+}
+
+button{
+padding:15px 30px;
+font-size:20px;
+background:#ff4d6d;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#surpresa{
+display:none;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🌈 Clique para ver a surpresa 🌈</h1>
+
+<button onclick="mostrar()">Abrir mensagem</button>
+
+<div id="surpresa">
+
+<div class="mensagem">
+Você merece o melhor do mundo,<br>
+estou sempre aqui por você! 💚<br><br>
+Te amo,<br>
+Du
+</div>
+
+<!-- imagens -->
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Rainbow-icon.png">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Dog_face.png">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Flower_icon.png">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/My_Little_Pony_logo.png">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/1/10/Palmeiras_logo.svg">
+
+</div>
+
+<script>
+
+function mostrar(){
+document.getElementById("surpresa").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
