@@ -6,17 +6,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Surpresa para Du</title>
+<title>Surpresa para Du 💚</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial, sans-serif;
-text-align:center;
-background:#0b6623;
 color:white;
 overflow:hidden;
+background:#0b6623;
+}
+
+/* luz verde animada */
+
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+top:-50%;
+left:-50%;
+background:radial-gradient(circle,#1f8f4d 0%,transparent 60%);
+animation:luz 10s linear infinite;
+opacity:0.4;
+z-index:-2;
+}
+
+@keyframes luz{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
 }
 
 /* tela inicial */
@@ -29,16 +48,12 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-}
-
-h1{
-font-size:32px;
-margin-bottom:30px;
+text-align:center;
 }
 
 button{
 padding:20px 40px;
-font-size:22px;
+font-size:24px;
 border:none;
 border-radius:12px;
 background:white;
@@ -50,12 +65,13 @@ cursor:pointer;
 
 .mensagem{
 position:absolute;
-z-index:2;
-font-size:28px;
+z-index:3;
+font-size:30px;
 background:rgba(0,0,0,0.55);
 padding:25px;
 border-radius:14px;
 max-width:80%;
+text-align:center;
 }
 
 /* slideshow */
@@ -81,15 +97,24 @@ opacity:0;
 animation:slideshow 25s infinite;
 }
 
-/* delay das fotos */
+/* efeito cinematic */
+
+.slide img{
+animation:zoom 25s infinite;
+}
+
+@keyframes zoom{
+0%{transform:scale(1);}
+100%{transform:scale(1.1);}
+}
+
+/* delay */
 
 .slide:nth-child(1){animation-delay:0s;}
 .slide:nth-child(2){animation-delay:5s;}
 .slide:nth-child(3){animation-delay:10s;}
 .slide:nth-child(4){animation-delay:15s;}
 .slide:nth-child(5){animation-delay:20s;}
-
-/* transição suave */
 
 @keyframes slideshow{
 
@@ -109,10 +134,11 @@ animation:slideshow 25s infinite;
 
 .confete{
 position:fixed;
-top:-20px;
-width:12px;
-height:12px;
-border-radius:50%;
+top:-40px;
+width:30px;
+height:30px;
+background-size:contain;
+background-repeat:no-repeat;
 animation:cair linear infinite;
 }
 
@@ -134,8 +160,6 @@ transform:translateY(100vh) rotate(720deg);
 
 <body>
 
-<!-- TELA INICIAL -->
-
 <div class="tela" id="inicio">
 
 <h1>Clique para ver a surpresa 💚</h1>
@@ -143,8 +167,6 @@ transform:translateY(100vh) rotate(720deg);
 <button onclick="abrir()">Abrir surpresa</button>
 
 </div>
-
-<!-- SURPRESA -->
 
 <div id="surpresa" style="display:none;">
 
@@ -180,12 +202,11 @@ Du
 function abrir(){
 
 document.getElementById("inicio").style.display="none";
-
 document.getElementById("surpresa").style.display="block";
 
-/* criar confete */
+/* confete com escudo */
 
-for(let i=0;i<150;i++){
+for(let i=0;i<120;i++){
 
 let c=document.createElement("div");
 
@@ -193,11 +214,9 @@ c.className="confete";
 
 c.style.left=Math.random()*100+"vw";
 
-c.style.backgroundColor=["#ff0000","#ffd700","#00ff88","#00aaff","#ff66cc"][Math.floor(Math.random()*5)];
-
 c.style.animationDuration=(Math.random()*3+3)+"s";
 
-c.style.opacity=Math.random();
+c.style.backgroundImage="url('palmeiras.jpeg')";
 
 document.body.appendChild(c);
 
